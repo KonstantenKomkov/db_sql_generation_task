@@ -20,7 +20,7 @@
   id_provider [int] - ID провайдера (уникальный ключ)  
   id_country [int] - ID страны (ссылка на [dbo].[country])  
   id_city [int] - ID города (ссылка на [dbo].[city])  
-  provider_name [nvarchar](100) - название отеля
+  provider_name \[nvarchar\](100) - название отеля
 
 Таблица **[dbo].[country]** содержит название стран.
 
@@ -28,7 +28,7 @@
 
 Таблица **[dbo].[currency_rate]** содержит информацию о курсе валюты в рубли на определенную дату.
 
-  id_currency [char](3) - валюта  
+  id_currency \[char\](3) - валюта  
   [date] [datetime] - дата, на которую актуален курс  
   [rate] [float] - курс валюты в рубли
 
