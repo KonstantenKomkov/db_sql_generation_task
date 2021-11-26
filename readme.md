@@ -18,9 +18,9 @@ creator [nvarchar](3) - канал брони, в случае если source\_
 Таблица [dbo].[provider] содержит информацию по провайдерам (гостиницам).
 
 id_provider [int] - ID провайдера (уникальный ключ)  
-id_country  [int] - ID страны (ссылка на [dbo].[country])  
-id_city  [int] - ID города (ссылка на [dbo].[city])  
-provider_name  [nvarchar](100) - название отеля
+id_country [int] - ID страны (ссылка на [dbo].[country])  
+id_city [int] - ID города (ссылка на [dbo].[city])  
+provider_name [nvarchar](100) - название отеля
 
 Таблица [dbo].[country]  содержит название стран.
 
@@ -51,27 +51,27 @@ CREATE TABLE [dbo].[booking](
 ```sql
 CREATE TABLE [dbo].[provider](  
   id_provider [int] NOT NULL PRIMARY KEY,  
-  id_country  [int] NOT NULL,  
-  id_city  [int] NOT NULL,  
-  provider_name  [nvarchar](100) NOT NULL  
+  id_country [int] NOT NULL,  
+  id_city [int] NOT NULL,  
+  provider_name [nvarchar](100) NOT NULL  
 )
 ```
 ```sql
 CREATE TABLE [dbo].[country](  
   id_country [int] NOT NULL PRIMARY KEY,  
-  country_name  [nvarchar](100) NOT NULL  
+  country_name [nvarchar](100) NOT NULL  
 )
 ```
 ```sql
 CREATE TABLE [dbo].[city](  
   id_city [int] NOT NULL PRIMARY KEY,  
-  city_name  [nvarchar](100) NOT NULL  
+  city_name [nvarchar](100) NOT NULL  
 )
 ```
 ```sql
 CREATE TABLE [dbo].[source](  
   id_source [int] NOT NULL PRIMARY KEY,  
-  source_name  [nvarchar](100) NOT NULL  
+  source_name [nvarchar](100) NOT NULL  
 )
 ```
 ```sql
