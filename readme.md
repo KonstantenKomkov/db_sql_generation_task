@@ -36,46 +36,51 @@ id\_currency [char](3) - валюта
 
 ```sql
 CREATE TABLE [dbo].[booking](  
-id\_booking [int] NOT NULL PRIMARY KEY,  
-id\_provider [int] NOT NULL,  
-creation\_date [date] NOT NULL,  
-start\_date [date] NOT NULL,  
-status [int] NOT NULL,  
-nights [int] NOT NULL,  
-price [float] NOT NULL,  
-id\_currency [nvarchar] (3) NOT NULL,  
-id\_source [int] NOT NULL,  
-creator [nvarchar](3) NOT NULL  
+  id\_booking [int] NOT NULL PRIMARY KEY,  
+  id\_provider [int] NOT NULL,  
+  creation\_date [date] NOT NULL,  
+  start\_date [date] NOT NULL,  
+  status [int] NOT NULL,  
+  nights [int] NOT NULL,  
+  price [float] NOT NULL,  
+  id\_currency [nvarchar] (3) NOT NULL,  
+  id\_source [int] NOT NULL,  
+  creator [nvarchar](3) NOT NULL  
 )
 ```
-
+```sql
 CREATE TABLE [dbo].[provider](  
-id\_provider [int] NOT NULL PRIMARY KEY,  
-id\_country  [int] NOT NULL,  
-id\_city  [int] NOT NULL,  
-provider\_name  [nvarchar](100) NOT NULL  
+  id\_provider [int] NOT NULL PRIMARY KEY,  
+  id\_country  [int] NOT NULL,  
+  id\_city  [int] NOT NULL,  
+  provider\_name  [nvarchar](100) NOT NULL  
 )
-
+```
+```sql
 CREATE TABLE [dbo].[country](  
-id\_country [int] NOT NULL PRIMARY KEY,  
-country\_name  [nvarchar](100) NOT NULL  
+  id\_country [int] NOT NULL PRIMARY KEY,  
+  country\_name  [nvarchar](100) NOT NULL  
 )
-
+```
+```sql
 CREATE TABLE [dbo].[city](  
-id\_city [int] NOT NULL PRIMARY KEY,  
-city\_name  [nvarchar](100) NOT NULL  
+  id\_city [int] NOT NULL PRIMARY KEY,  
+  city\_name  [nvarchar](100) NOT NULL  
 )
-
+```
+```sql
 CREATE TABLE [dbo].[source](  
-id\_source [int] NOT NULL PRIMARY KEY,  
-source\_name  [nvarchar](100) NOT NULL  
+  id\_source [int] NOT NULL PRIMARY KEY,  
+  source\_name  [nvarchar](100) NOT NULL  
 )
-
+```
+```sql
 CREATE TABLE [dbo].[currency\_rate](  
-id\_currency [char](3) NOT NULL,  
-[date] [datetime] NOT NULL,  
-[rate] [float] NOT NULL  
+  id\_currency [char](3) NOT NULL,  
+  [date] [datetime] NOT NULL,  
+  [rate] [float] NOT NULL  
 )
+```
 
 Задания:
 
