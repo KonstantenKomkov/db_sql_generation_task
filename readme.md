@@ -13,7 +13,7 @@
   price [float] - сумма брони  
   id_currency [nvarchar] (3) - валюта брони   
   id_source [int] - источник брони (ссылка на таблицу [dbo].[source])  
-  creator [nvarchar](3) - канал брони, в случае если source_name = ‘BS-CHANNEL_MANAGER’, если source_name != ‘BS-CHANNEL_MANAGER’, то значение равно пустой строке
+  creator \[nvarchar\](3) - канал брони, в случае если source_name = ‘BS-CHANNEL_MANAGER’, если source_name != ‘BS-CHANNEL_MANAGER’, то значение равно пустой строке
 
 Таблица **[dbo].[provider]** содержит информацию по провайдерам (гостиницам).
 
