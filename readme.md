@@ -5,10 +5,8 @@
 Таблица [dbo].[booking] содержит брони.
 
 id\_booking [int]  - ID брони (уникальный ключ)
-
-`	`id\_provider [int] - ID провайдера (ссылка на таблицу [dbo].[provider])
-
-`	`creation\_date [date] - дата создания брони
+`id\_provider [int] - ID провайдера (ссылка на таблицу [dbo].[provider])
+`creation\_date [date] - дата создания брони
 
 `	`start\_date [date] - дата заезда
 
