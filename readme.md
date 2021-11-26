@@ -5,24 +5,22 @@
 Таблица [dbo].[booking] содержит брони.
 
 id\_booking [int]  - ID брони (уникальный ключ)
-
-id\_provider [int] - ID провайдера (ссылка на таблицу [dbo].[provider])
-
-creation\_date [date] - дата создания брони
-start\_date [date] - дата заезда
-status [int] - статус брони
-nights [int] - количество ночей
-price [float] - сумма брони
-id\_currency [nvarchar] (3) - валюта брони 
-id\_source [int] - источник брони (ссылка на таблицу [dbo].[source])
-creator [nvarchar](3) - канал брони, в случае если source\_name = ‘BS-CHANNEL\_MANAGER’, если source\_name != ‘BS-CHANNEL\_MANAGER’, то значение равно пустой строке
+  id\_provider [int] - ID провайдера (ссылка на таблицу [dbo].[provider])
+  creation\_date [date] - дата создания брони
+  start\_date [date] - дата заезда
+  status [int] - статус брони
+  nights [int] - количество ночей
+  price [float] - сумма брони
+  id\_currency [nvarchar] (3) - валюта брони 
+  id\_source [int] - источник брони (ссылка на таблицу [dbo].[source])
+  creator [nvarchar](3) - канал брони, в случае если source\_name = ‘BS-CHANNEL\_MANAGER’, если source\_name != ‘BS-CHANNEL\_MANAGER’, то значение равно пустой строке
 
 Таблица [dbo].[provider] содержит информацию по провайдерам (гостиницам).
 
 id\_provider [int] - ID провайдера (уникальный ключ)
-id\_country  [int] - ID страны (ссылка на [dbo].[country])
-id\_city  [int] - ID города (ссылка на [dbo].[city])
-provider\_name  [nvarchar](100) - название отеля
+  id\_country  [int] - ID страны (ссылка на [dbo].[country])
+  id\_city  [int] - ID города (ссылка на [dbo].[city])
+  provider\_name  [nvarchar](100) - название отеля
 
 Таблица [dbo].[country]  содержит название стран.
 
@@ -31,52 +29,52 @@ provider\_name  [nvarchar](100) - название отеля
 Таблица [dbo].[currency\_rate] содержит информацию о курсе валюты в рубли на определенную дату.
 
 id\_currency [char](3) - валюта
-[date] [datetime] - дата, на которую актуален курс
-[rate] [float] - курс валюты в рубли
+  [date] [datetime] - дата, на которую актуален курс
+  [rate] [float] - курс валюты в рубли
 
 
 
 Создание таблиц
 
 CREATE TABLE [dbo].[booking](
-id\_booking [int] NOT NULL PRIMARY KEY,
-id\_provider [int] NOT NULL,
-creation\_date [date] NOT NULL,
-start\_date [date] NOT NULL,
-status [int] NOT NULL,
-nights [int] NOT NULL,
-price [float] NOT NULL,
-id\_currency [nvarchar] (3) NOT NULL,
-id\_source [int] NOT NULL,
-creator [nvarchar](3) NOT NULL
+  id\_booking [int] NOT NULL PRIMARY KEY,
+  id\_provider [int] NOT NULL,
+  creation\_date [date] NOT NULL,
+  start\_date [date] NOT NULL,
+  status [int] NOT NULL,
+  nights [int] NOT NULL,
+  price [float] NOT NULL,
+  id\_currency [nvarchar] (3) NOT NULL,
+  id\_source [int] NOT NULL,
+  creator [nvarchar](3) NOT NULL
 )
 
 CREATE TABLE [dbo].[provider](
-id\_provider [int] NOT NULL PRIMARY KEY,
-id\_country  [int] NOT NULL,
-id\_city  [int] NOT NULL,
-provider\_name  [nvarchar](100) NOT NULL
+  id\_provider [int] NOT NULL PRIMARY KEY,
+  id\_country  [int] NOT NULL,
+  id\_city  [int] NOT NULL,
+  provider\_name  [nvarchar](100) NOT NULL
 )
 
 CREATE TABLE [dbo].[country](
-id\_country [int] NOT NULL PRIMARY KEY,
-country\_name  [nvarchar](100) NOT NULL
+  id\_country [int] NOT NULL PRIMARY KEY,
+  country\_name  [nvarchar](100) NOT NULL
 )
 
 CREATE TABLE [dbo].[city](
-id\_city [int] NOT NULL PRIMARY KEY,
-city\_name  [nvarchar](100) NOT NULL
+  id\_city [int] NOT NULL PRIMARY KEY,
+  city\_name  [nvarchar](100) NOT NULL
 )
 
 CREATE TABLE [dbo].[source](
-id\_source [int] NOT NULL PRIMARY KEY,
-source\_name  [nvarchar](100) NOT NULL
+  id\_source [int] NOT NULL PRIMARY KEY,
+  source\_name  [nvarchar](100) NOT NULL
 )
 
 CREATE TABLE [dbo].[currency\_rate](
-id\_currency [char](3) NOT NULL,
-[date] [datetime] NOT NULL,
-[rate] [float] NOT NULL
+  id\_currency [char](3) NOT NULL,
+  [date] [datetime] NOT NULL,
+  [rate] [float] NOT NULL
 )
 
 
