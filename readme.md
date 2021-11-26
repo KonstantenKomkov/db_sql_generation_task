@@ -34,6 +34,7 @@ id\_currency [char](3) - валюта
 
 # Создание таблиц
 
+--- sql
 CREATE TABLE [dbo].[booking](  
 id\_booking [int] NOT NULL PRIMARY KEY,  
 id\_provider [int] NOT NULL,  
@@ -46,6 +47,7 @@ id\_currency [nvarchar] (3) NOT NULL,
 id\_source [int] NOT NULL,  
 creator [nvarchar](3) NOT NULL  
 )
+---
 
 CREATE TABLE [dbo].[provider](  
 id\_provider [int] NOT NULL PRIMARY KEY,  
