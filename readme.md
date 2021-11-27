@@ -91,9 +91,9 @@ creation_date: 01.01.2018 - 01.03.2018
 id_provider: соответствует набору в таблице [dbo].[provider]  
 id_currency: должны быть брони с различными валютами (коды валют можно посмотреть тут <http://vch.ru/zifrovye_i_bukvennye_kody_valyut_mira.html>)  
 creator:  если source_name != ‘BS-CHANNEL_MANAGER’ , то значение пустая строка (‘’). В случае, когда source_name = ‘BS-CHANNEL_MANAGER’ должы быть записи со значением ‘BGC’ (но не все).  
-Остальные данные могут быть заполнены рандомно.  
-  
-**[dbo].[provider]**  
+Остальные данные могут быть заполнены рандомно.
+
+   **[dbo].[provider]**  
 Кол-во данных: 10 000  
 id_country: соответствует набору в таблице [dbo].[country]  
 id_city: соответствует набору в таблице [dbo].[city]  
