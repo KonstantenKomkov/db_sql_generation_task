@@ -19,7 +19,7 @@ FROM
     INNER JOIN country c ON (p.country_id = c.id)
     INNER JOIN city t ON (p.city_id = t.id)
     INNER JOIN currency_rate d ON (b.id_currency = d.id_currency AND b.creation_date = d.[date])
-```sql
+```
 
 # Второе представление
 
