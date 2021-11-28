@@ -84,17 +84,17 @@
 [стоимости валют][1],
 [данные о провайдере][2],
 [брони][3].  
-```sql
-BULK INSERT currency_rate
--- YOUR PATH
-FROM 'D:\TestTasks\currency_rate.csv'
-WITH (
-    FORMAT='CSV',
-    FIRSTROW=2,
-    FIELDTERMINATOR = ',',
-    ROWTERMINATOR = '\n'
-);
-```
+   ```sql
+   BULK INSERT currency_rate
+   -- YOUR PATH
+   FROM 'D:\TestTasks\currency_rate.csv'
+   WITH (
+       FORMAT='CSV',
+       FIRSTROW=2,
+       FIELDTERMINATOR = ',',
+       ROWTERMINATOR = '\n'
+   );
+   ```
 
 # Первое представление
 
