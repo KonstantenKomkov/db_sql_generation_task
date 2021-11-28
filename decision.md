@@ -1,7 +1,7 @@
 # Заполняем таблицы
 
 1. Таблица стран
-```sql
+   ```sql
 INSERT INTO dbo.country(country_name) VALUES
 ('Россия'), ('США'), ('Турция'), ('Китай'), ('Мексика'), 
 ('Канада'), ('Япония'), ('Австрия'), ('Великобритания'), ('Германия'), 
@@ -9,7 +9,7 @@ INSERT INTO dbo.country(country_name) VALUES
 ('Испания'), ('Финляндия'), ('Португалия'), ('Нидерланды'), ('Норвегия')
 ```
 1. Таблица городов
-```sql
+   ```sql
 INSERT INTO dbo.city(city_name) VALUES
 ('Москва'), ('Санкт-Петербург'), ('Новосибирск'), ('Екатеринбург'), ('Казань'), 
 ('Нижний Новгород'), ('Ростов-на-Дону'), ('Краснодар'), ('Тюмень'), ('Ижевск'), 
@@ -73,7 +73,7 @@ INSERT INTO dbo.city(city_name) VALUES
 ('Саннес'), ('Сарпсборг'), ('Олесунн'), ('Тёнсберг'), ('Мосс')
 ```
 1. Таблица провайдеров
-```sql
+   ```sql
 INSERT INTO dbo.source(source_name) VALUES
 ('BS-CHANNEL_MANAGER'), ('TL-CHANNEL_MANAGER'), ('BL-CHANNEL_MANAGER'), ('RC-CHANNEL_MANAGER'), ('CH-CHANNEL_MANAGER'), 
 ('GB-CHANNEL_MANAGER'), ('BNOVO-CHANNEL_MANAGER'), ('OMS-CHANNEL_MANAGER'), ('KK-CHANNEL_MANAGER'), ('AS-CHANNEL_MANAGER')
