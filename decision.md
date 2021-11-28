@@ -80,7 +80,21 @@
    ('BS-CHANNEL_MANAGER'), ('TL-CHANNEL_MANAGER'), ('BL-CHANNEL_MANAGER'), ('RC-CHANNEL_MANAGER'), ('CH-CHANNEL_MANAGER'), 
    ('GB-CHANNEL_MANAGER'), ('BNOVO-CHANNEL_MANAGER'), ('OMS-CHANNEL_MANAGER'), ('KK-CHANNEL_MANAGER'), ('AS-CHANNEL_MANAGER')
    ```
-1. Если для заполнения первых трёх таблиц можно использовать MS Excel и генерировать запросы используя функцию сложения строк, то для генерации данных таблиц: броней, данных о провайдере и стоимости валют нужно использовать автоматизацию.
+1. Если для заполнения первых трёх таблиц можно использовать MS Excel и генерировать запросы используя функцию сложения строк, то для генерации данных таблиц: броней, данных о провайдере и стоимости валют нужно использовать автоматизацию:  
+[стоимости валют][1],
+[данные о провайдере][2],
+[брони][3].  
+```sql
+BULK INSERT currency_rate
+-- YOUR PATH
+FROM 'D:\TestTasks\currency_rate.csv'
+WITH (
+    FORMAT='CSV',
+    FIRSTROW=2,
+    FIELDTERMINATOR = ',',
+    ROWTERMINATOR = '\n'
+);
+```
 
 # Первое представление
 
@@ -215,3 +229,4 @@ ORDER BY
     creation_year,
     creation_month
 ```
+[1]: link  
