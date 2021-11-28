@@ -4,16 +4,16 @@
 
 Таблица **[dbo].[booking]** содержит брони.
   
-  id_booking [int]  - ID брони (уникальный ключ)  
-  id_provider [int] - ID провайдера (ссылка на таблицу [dbo].[provider])  
-  creation_date [date] - дата создания брони  
-  start_date [date] - дата заезда  
-  status [int] - статус брони  
-  nights [int] - количество ночей  
-  price [float] - сумма брони  
-  id_currency [nvarchar] (3) - валюта брони   
-  id_source [int] - источник брони (ссылка на таблицу [dbo].[source])  
-  creator \[nvarchar\](3) - канал брони, в случае если source_name = ‘BS-CHANNEL_MANAGER’, если source_name != ‘BS-CHANNEL_MANAGER’, то значение равно пустой строке
+ id_booking [int]  - ID брони (уникальный ключ)  
+ id_provider [int] - ID провайдера (ссылка на таблицу [dbo].[provider])  
+ creation_date [date] - дата создания брони  
+ start_date [date] - дата заезда  
+ status [int] - статус брони  
+ nights [int] - количество ночей  
+ price [float] - сумма брони  
+ id_currency [nvarchar] (3) - валюта брони   
+ id_source [int] - источник брони (ссылка на таблицу [dbo].[source])  
+ creator \[nvarchar\](3) - канал брони, в случае если source_name = ‘BS-CHANNEL_MANAGER’, если source_name != ‘BS-CHANNEL_MANAGER’, то значение равно пустой строке
   
 Таблица **[dbo].[provider]** содержит информацию по провайдерам (гостиницам).  
   
