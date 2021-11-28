@@ -3,6 +3,7 @@
 ## Описание таблиц
 
 Таблица **[dbo].[booking]** содержит брони.
+  
   id_booking [int]  - ID брони (уникальный ключ)  
   id_provider [int] - ID провайдера (ссылка на таблицу [dbo].[provider])  
   creation_date [date] - дата создания брони  
