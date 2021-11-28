@@ -58,19 +58,19 @@ CREATE TABLE [dbo].[provider](
 ```
 ```sql
 CREATE TABLE [dbo].[country](  
-  id_country [int] NOT NULL PRIMARY KEY,  
+  id_country [int] NOT NULL PRIMARY KEY IDENTITY(1,1),  
   country_name [nvarchar](100) NOT NULL  
 )
 ```
 ```sql
 CREATE TABLE [dbo].[city](  
-  id_city [int] NOT NULL PRIMARY KEY,  
+  id_city [int] NOT NULL PRIMARY KEY IDENTITY(1,1),  
   city_name [nvarchar](100) NOT NULL  
 )
 ```
 ```sql
 CREATE TABLE [dbo].[source](  
-  id_source [int] NOT NULL PRIMARY KEY,  
+  id_source [int] NOT NULL PRIMARY KEY IDENTITY(1,1),  
   source_name [nvarchar](100) NOT NULL  
 )
 ```
