@@ -50,7 +50,7 @@ CREATE TABLE [dbo].[booking](
 ```
 ```sql
 CREATE TABLE [dbo].[provider](  
-  id_provider [int] NOT NULL PRIMARY KEY,  
+  id_provider [int] NOT NULL PRIMARY KEY IDENTITY(1,1),  
   id_country [int] NOT NULL,  
   id_city [int] NOT NULL,  
   provider_name [nvarchar](100) NOT NULL  
