@@ -235,4 +235,4 @@ ORDER BY
     creation_month
 ```
 [1]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/generate_currency_rate.py
-[2]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/currency_rate.csv
+[4]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/currency_rate.csv
