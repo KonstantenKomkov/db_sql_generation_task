@@ -84,6 +84,11 @@
 [стоимости валют][1],
 [данные о провайдере][2],
 [брони][3].  
+Csv:  
+[стоимость валют][4],  
+[данные о провайдере][5],  
+[брони][6].
+
    ```sql
    BULK INSERT currency_rate
    -- YOUR PATH
@@ -229,4 +234,5 @@ ORDER BY
     creation_year,
     creation_month
 ```
-[1]: link  
+[1]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/generate_currency_rate.py
+[2]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/currency_rate.csv
