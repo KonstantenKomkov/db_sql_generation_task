@@ -46,34 +46,39 @@ def load_hotels(country):
 
 def create_SQL_values(hotels_by_countries):
     
-    sql_text = "INSERT INTO dbo.provider (country_id, city_id, provider_name) VALUES "
-    result = ""
+    separator = "#"
+    result = f"id_provider{separator} id_country{separator} id_city{separator} provider_name\n"
+    autoincrement = 1
     for i, hotels in enumerate(hotels_by_countries):
         if i == 0:
-            result = f"{sql_text}"
             for hotel in hotels:
-                name = hotel.replace("'", '"')
-                result = f"{result}({i+1}, {random.randint(i*15+1, i*15+15)}, '{name}'), "
+                name = hotel.replace('"', "'")
+                result = f'{result}{autoincrement}{separator} {i+1}{separator} {random.randint(i*15+1, i*15+15)}{separator} {name}\n'
+                autoincrement +=1
         else:
             if i % 2 == 0:
-                result = f"{result[:-2]}\n{sql_text}"
+                result = f"{result[:-2]}\n"
                 for hotel in hotels:
-                    name = hotel.replace("'", '"')
-                    result = f"{result}({i+1}, {random.randint(i*15+1, i*15+15)}, '{name}'), "
+                    name = hotel.replace('"', "'")
+                    result = f'{result}{autoincrement}{separator} {i+1}{separator} {random.randint(i*15+1, i*15+15)}{separator} {name}\n'
+                    autoincrement += 1
             else:
                 for hotel in hotels:
-                    name = hotel.replace("'", '"')
-                    result = f"{result}({i+1}, {random.randint(i*15+1, i*15+15)}, '{name}'), "
+                    name = hotel.replace('"', "'")
+                    result = f'{result}{autoincrement}{separator} {i+1}{separator} {random.randint(i*15+1, i*15+15)}{separator} {name}\n'
+                    autoincrement += 1
     return result[:-2]
 
     
-    
-hotels_by_countries = []
-for i, country in enumerate(COUNTRIES):
-    print(f"{i+1}. {COUNTRIES[i]['tag']} + ")
-    hotels_by_countries.append(load_hotels(country["tag"]))
+def save_sql():    
+    hotels_by_countries = []
+    for i, country in enumerate(COUNTRIES):
+        print(f"{i+1}. {COUNTRIES[i]['tag']} + ")
+        hotels_by_countries.append(load_hotels(country["tag"]))
 
-result = create_SQL_values(hotels_by_countries)
-with open("provider INSERT.txt", "w") as file:
-    file.write(result)
+    result = create_SQL_values(hotels_by_countries)
+    with open("provider.csv", "w") as file:
+        file.write(result)
 
+
+save_sql()
