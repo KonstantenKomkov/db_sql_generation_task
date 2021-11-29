@@ -105,7 +105,7 @@ Csv:
    ```sql
    BULK INSERT [provider]
    -- YOUR PATH
-   FROM 'D:\Work\TestTasks\Тестовое TravelLine\provider.csv'
+   FROM 'D:\TestTasks\provider.csv'
    WITH (
        FORMAT='CSV',
        FIRSTROW=2,
