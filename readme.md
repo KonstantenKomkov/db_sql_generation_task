@@ -36,7 +36,7 @@
 
 ```sql
 CREATE TABLE [dbo].[booking](  
-  id_booking [int] NOT NULL PRIMARY KEY,  
+  id_booking [int] NOT NULL PRIMARY KEY IDENTITY(1,1),  
   id_provider [int] NOT NULL,  
   creation_date [date] NOT NULL,  
   start_date [date] NOT NULL,  
