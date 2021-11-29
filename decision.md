@@ -100,6 +100,18 @@ Csv:
        ROWTERMINATOR = '\n'
    );
    ```
+   
+   ```sql
+   BULK INSERT [provider]
+   -- YOUR PATH
+   FROM 'D:\Work\TestTasks\Тестовое TravelLine\provider.csv'
+   WITH (
+       FORMAT='CSV',
+       FIRSTROW=2,
+       FIELDTERMINATOR = '#',
+       ROWTERMINATOR = '\n'
+   )
+   ```
 
 # Первое представление
 
