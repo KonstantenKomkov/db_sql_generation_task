@@ -82,11 +82,11 @@
    ```
 1. Если для заполнения первых трёх таблиц можно использовать MS Excel и генерировать запросы используя функцию сложения строк, то для генерации данных таблиц: броней, данных о провайдере и стоимости валют нужно использовать автоматизацию:  
 [стоимости валют][1],
-[данных о провайдерах][2]
-Csv:  
-[стоимости валют][3],  
-[данные о провайдерах][4],  
-[брони][5].
+[данных о провайдерах][2] и бронях[3].
+
+Csv файлы с данными:  
+[стоимость валют][4],  
+[провайдеры][5].
 
    ```sql
    BULK INSERT currency_rate
@@ -100,7 +100,7 @@ Csv:
    );
    ```
    
-   Изменил значение сепаратора (FIELDTERMINATOR), предварительно проверив, что символ # не используется в названии отелей.  
+   Изменено значение сепаратора (FIELDTERMINATOR), на символ #, который не используется в названии отелей. Т.к. в названии отелей используется кирилица установлена соответствующая кодировка [ACP][6].
    ```sql
    BULK INSERT [provider]
    -- YOUR PATH
@@ -263,6 +263,8 @@ ORDER BY
 ```
 [1]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/generate_currency_rate.py
 [2]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/generate_providers.py
-[3]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/currency_rate.csv
-[4]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/provider.csv
-[5]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/generate_booking.py
+[3]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/generate_booking.py
+[4]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/currency_rate.csv
+[5]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/provider.csv
+[6]: https://docs.microsoft.com/ru-ru/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#:~:text=%D0%9E%D0%BF%D0%B8%D1%81%D0%B0%D0%BD%D0%B8%D0%B5-,ACP,ANSI/Microsoft%20Windows%20(ISO%201252)%20%D0%B2%20%D0%BA%D0%BE%D0%B4%D0%BE%D0%B2%D1%83%D1%8E%20%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%86%D1%83%20SQL%C2%A0Server.,-OEM%20(%D0%BF%D0%BE%20%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E
+
