@@ -106,6 +106,7 @@ Csv:
    -- YOUR PATH
    FROM 'D:\TestTasks\provider.csv'
    WITH (
+       CODEPAGE = 'ACP',
        FORMAT='CSV',
        FIRSTROW=2,
        FIELDTERMINATOR = '#',
