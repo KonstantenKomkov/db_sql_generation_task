@@ -130,9 +130,9 @@ Csv:
 # Первое представление
 
 ```sql
-CREATE VIEW my_first_view AS
+CREATE VIEW [dbo].[my_first_view] AS
 SELECT
-    b.provider_id,
+    b.id_provider,
     p.provider_name,
     c.country_name,
     t.city_name,
@@ -144,18 +144,18 @@ SELECT
     b.price * d.rate as sum_rub
 FROM
     booking b
-    INNER JOIN provider p ON (b.provider_id = p.id_provider)
-    INNER JOIN country c ON (p.country_id = c.id)
-    INNER JOIN city t ON (p.city_id = t.id)
+    INNER JOIN provider p ON (b.id_provider = p.id_provider)
+    INNER JOIN country c ON (p.id_country = c.id_country)
+    INNER JOIN city t ON (p.id_city = t.id_city)
     INNER JOIN currency_rate d ON (b.id_currency = d.id_currency AND b.creation_date = d.[date])
 ```
 
 # Второе представление
 
 ```sql
-CREATE VIEW my_second_view AS
+CREATE VIEW [dbo].[my_second_view] AS
 SELECT
-    b.provider_id,
+    b.id_provider,
     p.provider_name,
     c.country_name,
     t.city_name,
@@ -165,13 +165,13 @@ SELECT
     SUM(CASE WHEN b.creator = 'BGC' THEN 1 ELSE 0 END) * 100 / COUNT(*) as bs_cm_bgc
 FROM
     booking b
-    INNER JOIN provider p ON (b.provider_id = p.id_provider)
-    INNER JOIN country c ON (p.country_id = c.id)
-    INNER JOIN city t ON (p.city_id = t.id)
+    INNER JOIN provider p ON (b.id_provider = p.id_provider)
+    INNER JOIN country c ON (p.id_country = c.id_country)
+    INNER JOIN city t ON (p.id_city = t.id_city)
 GROUP BY
     YEAR(b.creation_date),
     MONTH(b.creation_date),
-    b.provider_id, p.provider_name,
+    b.id_provider, p.provider_name,
     c.country_name,
     t.city_name
 ```
@@ -184,27 +184,27 @@ CREATE PROC
 AS
 SELECT
     country_name,
-    provider_id,
+    id_provider,
     provider_name,
     city_name,
     count_booking FROM (
 SELECT
     c.country_name,
-    b.provider_id,
+    b.id_provider,
     p.provider_name,
     t.city_name,
-    COUNT(b.provider_id) as count_booking,
-    RANK() OVER (PARTITION BY c.country_name ORDER BY c.country_name, COUNT(b.provider_id) DESC) AS rank_result
+    COUNT(b.id_provider) as count_booking,
+    RANK() OVER (PARTITION BY c.country_name ORDER BY c.country_name, COUNT(b.id_provider) DESC) AS rank_result
 FROM 
     booking b
-    INNER JOIN provider p ON (b.provider_id = p.id_provider)
-    INNER JOIN country c ON (p.country_id = c.id)
-    INNER JOIN city t ON (p.city_id = t.id)
+    INNER JOIN provider p ON (b.id_provider = p.id_provider)
+    INNER JOIN country c ON (p.id_country = c.id_country)
+    INNER JOIN city t ON (p.id_city = t.id_city)
 WHERE
     datediff(day, b.creation_date, b.start_date) < @booking_depth
 GROUP BY
     c.country_name,
-    b.provider_id,
+    b.id_provider,
     p.provider_name,
     t.city_name)
     X
@@ -214,14 +214,14 @@ WHERE rank_result <= 5
 # Последний запрос
 
 ```sql
-WITH Booking_each_month (provider_id) 
+WITH Booking_each_month (id_provider) 
 AS
     (SELECT
-        provider_id
+        id_provider
     FROM
         (SELECT
-            b.provider_id,
-            RANK() OVER (PARTITION BY b.provider_id ORDER BY MONTH(b.creation_date)) AS rank_result
+            b.id_provider,
+            RANK() OVER (PARTITION BY b.id_provider ORDER BY MONTH(b.creation_date)) AS rank_result
         FROM
             booking b 
         WHERE
@@ -229,34 +229,34 @@ AS
         GROUP BY
             YEAR(b.creation_date),
             MONTH(b.creation_date),
-            b.provider_id
+            b.id_provider
         ) X 
     WHERE rank_result = 3)
 SELECT
-    bo.provider_id,
+    bo.id_provider,
     p.provider_name,
     c.country_name,
     t.city_name,
     YEAR(bo.creation_date) as creation_year,
     MONTH(bo.creation_date) as creation_month,
-    COUNT(bo.provider_id) as count_booking,
+    COUNT(bo.id_provider) as count_booking,
     AVG(bo.price*d.rate) as price
 FROM
     Booking_each_month bem
-    INNER JOIN booking bo ON (bem.provider_id = bo.provider_id)
-    INNER JOIN provider p ON (bo.provider_id = p.id_provider)
-    INNER JOIN country c ON (p.country_id = c.id)
-    INNER JOIN city t ON (p.city_id = t.id)
+    INNER JOIN booking bo ON (bem.id_provider = bo.id_provider)
+    INNER JOIN provider p ON (bo.id_provider = p.id_provider)
+    INNER JOIN country c ON (p.id_country = c.id_country)
+    INNER JOIN city t ON (p.id_city = t.id_city)
     INNER JOIN currency_rate d ON (bo.id_currency = d.id_currency AND bo.creation_date = d.[date])
 GROUP BY
     YEAR(bo.creation_date),
     MONTH(bo.creation_date),
-    bo.provider_id,
+    bo.id_provider,
     p.provider_name,
     c.country_name,
     t.city_name
 ORDER BY
-    provider_id,
+    id_provider,
     creation_year,
     creation_month
 ```
