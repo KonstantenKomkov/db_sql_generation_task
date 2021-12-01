@@ -113,6 +113,20 @@ Csv:
        ROWTERMINATOR = '\n'
    )
    ```
+   
+   Файловая загрузка данных для последней таблицы.
+   
+     ```sql
+   BULK INSERT booking
+   -- YOUR PATH
+   FROM 'D:\TestTasks\booking.csv'
+   WITH (
+       FORMAT='CSV',
+       FIRSTROW=2,
+       FIELDTERMINATOR = ',',
+       ROWTERMINATOR = '\n'
+   )
+   ```
 
 # Первое представление
 
