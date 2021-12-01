@@ -67,7 +67,7 @@ def create_queries():
                 result = f"{result}{generate_values(country, autoincrement)}"
             x += 1
             autoincrement += 1
-    return result[:-1]
+    return result
 
 
 result = create_queries()
