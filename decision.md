@@ -82,12 +82,11 @@
    ```
 1. Если для заполнения первых трёх таблиц можно использовать MS Excel и генерировать запросы используя функцию сложения строк, то для генерации данных таблиц: броней, данных о провайдере и стоимости валют нужно использовать автоматизацию:  
 [стоимости валют][1],
-[данных о провайдерах][2] и
-[бронях][3].  
+[данных о провайдерах][2]
 Csv:  
-[стоимости валют][4],  
-[данные о провайдерах][5],  
-[брони][6].
+[стоимости валют][3],  
+[данные о провайдерах][4],  
+[брони][5].
 
    ```sql
    BULK INSERT currency_rate
@@ -263,5 +262,6 @@ ORDER BY
 ```
 [1]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/generate_currency_rate.py
 [2]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/generate_providers.py
-[4]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/currency_rate.csv
-[5]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/provider.csv
+[3]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/currency_rate.csv
+[4]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/provider.csv
+[5]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/generate_booking.py
