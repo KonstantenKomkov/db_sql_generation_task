@@ -262,6 +262,57 @@ ORDER BY
     creation_year,
     creation_month
 ```
+
+Или
+
+```sql
+WITH Booking_each_month (id_provider) 
+AS
+    (SELECT
+        id_provider
+    FROM 
+        (SELECT
+            id_provider,
+            COUNT(id_provider) as month_count
+        FROM
+            (SELECT DISTINCT
+            b.id_provider,
+            MONTH(b.creation_date) as month_number
+            FROM
+            booking b) X
+        GROUP BY
+            id_provider
+        ) X
+    WHERE
+        month_count = 3)
+SELECT
+    bo.id_provider,
+    p.provider_name,
+    c.country_name,
+    t.city_name,
+    YEAR(bo.creation_date) as creation_year,
+    MONTH(bo.creation_date) as creation_month,
+    COUNT(bo.id_provider) as count_booking,
+    AVG(bo.price*d.rate) as price
+FROM
+    Booking_each_month bem
+    INNER JOIN booking bo ON (bem.id_provider = bo.id_provider)
+    INNER JOIN provider p ON (bo.id_provider = p.id_provider)
+    INNER JOIN country c ON (p.id_country = c.id_country)
+    INNER JOIN city t ON (p.id_city = t.id_city)
+    INNER JOIN currency_rate d ON (bo.id_currency = d.id_currency AND bo.creation_date = d.[date])
+GROUP BY
+    YEAR(bo.creation_date),
+    MONTH(bo.creation_date),
+    bo.id_provider,
+    p.provider_name,
+    c.country_name,
+    t.city_name
+ORDER BY
+    id_provider,
+    creation_year,
+    creation_month
+```
 [1]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/generate_currency_rate.py
 [2]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/generate_providers.py
 [3]: https://github.com/KonstantenKomkov/db_sql_generation_task/blob/main/generate_booking.py
