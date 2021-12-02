@@ -172,7 +172,8 @@ FROM
 GROUP BY
     YEAR(b.creation_date),
     MONTH(b.creation_date),
-    b.id_provider, p.provider_name,
+    b.id_provider,
+    p.provider_name,
     c.country_name,
     t.city_name
 ```
