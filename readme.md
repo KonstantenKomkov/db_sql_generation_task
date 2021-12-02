@@ -91,7 +91,7 @@ CREATE TABLE [dbo].[currency_rate](
 Кол-во данных: 500 000  
 creation_date: 01.01.2018 - 01.03.2018  
 id_provider: соответствует набору в таблице [dbo].[provider]  
-id_currency: должны быть брони с различными валютами (коды валют можно посмотреть тут <http://vch.ru/zifrovye_i_bukvennye_kody_valyut_mira.html>)  
+id_currency: должны быть брони с различными валютами (коды валют можно посмотреть [тут][1])  
 creator:  если source_name != ‘BS-CHANNEL_MANAGER’ , то значение пустая строка (‘’). В случае, когда source_name = ‘BS-CHANNEL_MANAGER’ должы быть записи со значением ‘BGC’ (но не все).  
 Остальные данные могут быть заполнены рандомно.
 
